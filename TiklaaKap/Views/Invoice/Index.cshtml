@@ -1,0 +1,74 @@
+﻿@using TiklaaKap.Models.Class
+@model List<Invoice>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Faturalar</li>
+</ol>
+<a class="btn btn-primary float-right" href="/Invoice/InvoiceAdd/">Yeni Fatura</a>
+<br />
+<br />
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Seri No</th>
+                <th>Sıra No</th>
+                <th>Vergi Dairesi</th>
+                <th>Vergi No</th>
+                <th>Tarih</th>
+                <th>Saat</th>
+                <th>Adres</th>
+                <th>Teslim Eden</th>
+                <th>Teslim Alan</th>
+                <th>Toplam</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>Seri No</th>
+                <th>Sıra No</th>
+                <th>Vergi Dairesi</th>
+                <th>Vergi No</th>
+                <th>Tarih</th>
+                <th>Saat</th>
+                <th>Adres</th>
+                <th>Teslim Eden</th>
+                <th>Teslim Alan</th>
+                <th>Toplam</th>
+                <th>İşlemler</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.InvoiceID</td>
+                    <td>@c.InvoiceSerino</td>
+                    <td>@c.InvoiceNumber</td>
+                    <td>@c.Tax</td>
+                    <td>@c.TaxNumber</td>
+                    <td>@c.InvoiceDate</td>
+                    <td>@c.Time</td>
+                    <td>@c.adress</td>
+                    <td>@c.Delivering</td>
+                    <td>@c.Delivery</td>
+                    <td>@c.Total</td>
+                    <td class="w-25">
+                        <a class="btn btn-outline-warning" href="/Invoice/InvoiceView/@c.InvoiceID">Güncelle</a>
+                        <a class="btn btn-outline-primary" href="/Invoice/InvoiceDetail/@c.InvoiceID">Detaylar</a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

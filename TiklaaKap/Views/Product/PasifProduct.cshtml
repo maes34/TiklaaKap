@@ -1,0 +1,69 @@
+﻿@using TiklaaKap.Models.Class
+@model List<Product>
+@{
+    ViewBag.Title = "PasifProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Ürünler</li>
+    <li class="breadcrumb-item active">Pasif Ürünler</li>
+</ol>
+<a class="btn btn-secondary float-right" href="/Product/Index/">Geri</a><br /><br />
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Ürün Görsel</th>
+                <th>Ürün Adı</th>
+                <th>Marka</th>
+                <th>Kategori</th>
+                <th>Alış Fiyatı</th>
+                <th>Satış Fiyatı</th>
+                <th>Stok</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>Ürün Görsel</th>
+                <th>Ürün Adı</th>
+                <th>Marka</th>
+                <th>Kategori</th>
+                <th>Alış Fiyatı</th>
+                <th>Satış Fiyatı</th>
+                <th>Stok</th>
+                <th>İşlemler</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.ProductID</td>
+                    <td>
+                        <a href="#@Url.Content(@x.ProductImage)">
+                            <img width="75" src="@Url.Content(@x.ProductImage)">
+                        </a>
+                        <!-- lightbox container hidden with CSS -->
+                        <a href="#" class="lightbox" id="@Url.Content(@x.ProductImage)">
+                            <span style="background-image: url('@Url.Content(@x.ProductImage)')"></span>
+                        </a>
+                    </td>
+                    <td>@x.ProductName</td>
+                    <td>@x.ProductBrand</td>
+                    <td>@x.Category.CategoryName</td>
+                    <td>@x.BuyPrice₺</td>
+                    <td>@x.SellPrice₺</td>
+                    <td>@x.Stock</td>
+                    <td>
+                        <a class="btn btn-outline-success" href="/Product/ProductActive/@x.ProductID">Aktifleştir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

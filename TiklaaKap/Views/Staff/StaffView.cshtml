@@ -1,0 +1,31 @@
+﻿@model TiklaaKap.Models.Class.Staff
+@{
+    ViewBag.Title = "StaffView";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("StaffUpdate", "Staff", FormMethod.Post))
+{
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Personel</li>
+        <li class="breadcrumb-item active">Personel Düzenle - <b>&nbsp;@Html.DisplayTextFor(x => x.StaffName) @Html.DisplayTextFor(x => x.StaffSurname)</b></li>
+    </ol>
+    @Html.HiddenFor(x => x.StaffID)
+    <span>Ad :</span>
+    @Html.TextBoxFor(x => x.StaffName, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.StaffName) })
+    <br />
+    <span>Soyad :</span>
+    @Html.TextBoxFor(x => x.StaffSurname, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.StaffSurname) })
+    <br />
+    <span>Şehir :</span>
+    @Html.TextBoxFor(x => x.StaffImage, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.StaffImage) })
+    <br />
+    <span>Departman :</span>
+    @Html.DropDownListFor(x => x.DepartmentID, (List<SelectListItem>)ViewBag.depList, new { @class ="form-control" })
+    <br />
+    <span>Durum :</span>
+    @Html.TextBoxFor(x => x.Information, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.Information) })
+    <br />
+    <a class="btn btn-secondary" href="/Staff/Index/">Geri</a>
+    <button class="btn btn-outline-dark">Güncelle</button>
+}

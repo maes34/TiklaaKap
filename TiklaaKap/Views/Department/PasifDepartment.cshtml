@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "PasifDepartment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Pasif Departmanlar</li>
+</ol>
+<a class="btn btn-secondary float-right" href="/Department/Index/">Geri</a>
+<br />
+<br />
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Departman Adı</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>Departman Adı</th>
+                <th>İşlemler</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            @foreach (var d in Model)
+            {
+                <tr>
+                    <td>@d.DepartmentID</td>
+                    <td><a class="text-dark" href="/Department/DepartmentDetail/@d.DepartmentID">@d.DepartmentName</a></td>
+                    <td class="w-25">
+                        <a class="btn btn-outline-success" href="/Department/DepartmentActive/@d.DepartmentID">Aktifleştir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

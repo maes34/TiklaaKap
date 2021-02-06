@@ -1,0 +1,49 @@
+﻿@model TiklaaKap.Models.Class.Product
+@{
+    ViewBag.Title = "ProductView";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using (Html.BeginForm("ProductUpdate", "Product", FormMethod.Post))
+{
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Ürünler</li>
+        <li class="breadcrumb-item active">Ürün Düzenle -  <b>@Html.DisplayTextFor(x => x.ProductName)</b></li>
+    </ol>
+    @Html.HiddenFor(x => x.ProductID)
+    <span>Ürün Resim</span>
+    @Html.TextBoxFor(x => x.ProductImage, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.ProductImage) })
+    <br />
+    <span>Ürün Ad</span>
+    @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.ProductName) })
+    <br />
+    <span>Marka</span>
+    @Html.TextBoxFor(x => x.ProductBrand, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.ProductBrand) })
+    <br />
+    <span>Kategori</span>
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.proList, new { @class = "form-control" })
+    <br />
+    <span>Açıklama</span>
+    @Html.TextAreaFor(x => x.ProductDesc, new { @class = "form-control", rows = "15", cols = "150", placeholder = @Html.DisplayTextFor(x => x.ProductDesc) })
+    <br />
+    <span>Stok</span>
+    @Html.TextBoxFor(x => x.Stock, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.Stock) })
+    <br />
+    <span>Alış fiyatı</span>
+    <div class="input-group mb-3">
+        @Html.TextBoxFor(x => x.BuyPrice, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.BuyPrice) })
+        <div class="input-group-append">
+            <span class="input-group-text">TL</span>
+        </div>
+    </div>
+    <span>Satış fiyatı</span>
+    <div class="input-group mb-3">
+        @Html.TextBoxFor(x => x.SellPrice, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.SellPrice) })
+        <div class="input-group-append">
+            <span class="input-group-text">TL</span>
+        </div>
+    </div>
+    <span>Durum</span>
+    @Html.TextBoxFor(x => x.Information, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.Information) })<br />
+    <a class="btn btn-secondary" href="/Product/Index/">Geri</a>
+    <button class="btn btn-outline-dark">Güncelle</button>
+}

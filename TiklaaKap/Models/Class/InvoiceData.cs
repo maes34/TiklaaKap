@@ -18,6 +18,7 @@ namespace TiklaaKap.Models.Class
         public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
         public decimal Amount { get; set; }
-        public Invoice Invoices { get; set; }
+        public int InvoiceID { get; set; }
+        public virtual Invoice Invoices { get; set; }
     }
 }

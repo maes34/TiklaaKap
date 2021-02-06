@@ -10,16 +10,16 @@ namespace TiklaaKap.Models.Class
     {
         [Key]
         public int SalesID { get; set; }
-        //Ürün
-        //Cari
-        //Personel
         public DateTime Date { get; set; }
         public int Quantity { get; set; }
         public decimal Price { get; set; }
         public decimal TotalPrice { get; set; }
 
-        public Product Product { get; set; }
-        public Cariler Cariler { get; set; }
-        public Staff Staff { get; set; }
+        public int ProductID { get; set; }
+        public int CariID { get; set; }
+        public int StaffID { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual Cariler Cariler { get; set; }
+        public virtual Staff Staff { get; set; }
     }
 }

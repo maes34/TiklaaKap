@@ -1,0 +1,26 @@
+﻿@model TiklaaKap.Models.Class.Cariler
+@{
+    ViewBag.Title = "CariAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Cariler</li>
+    <li class="breadcrumb-item active">Yeni Cari Ekle</li>
+</ol>
+
+<form class="form-group" method="post">
+    <span>Cari Ad</span>
+    @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control", placeholder = "Cari Adı" })
+    <br />
+    <span>Cari Soyad</span>
+    @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control", placeholder = "Cari Soyad" })
+    <br />
+    <span>Cari Sehir</span>
+    @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control", placeholder = "Cari Şehir" })
+    <br />
+    <span>Cari Ad</span>
+    @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control", placeholder = "Cari E-Mail" })
+    <br />
+    <a class="btn btn-secondary" href="/Cari/Index/">Geri</a>
+    <button class="btn btn-success">Kaydet</button>
+</form>

@@ -19,12 +19,32 @@ namespace TiklaaKap.Models.Class
         [Column(TypeName = "Varchar")]
         [StringLength(6)]
         public string InvoiceNumber { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime InvoiceDate { get; set; }
+
+        [Column(TypeName = "Varchar")]
+        [StringLength(30)]
+        public string Tax { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(60)]
         public string TaxNumber { get; set; }
-        public DateTime Time { get; set; }
+
+        [Column(TypeName = "char")]
+        [StringLength(5)]
+        public string Time { get; set; }
+
+        public decimal Total { get; set; }
+
+        [Column(TypeName = "Varchar")]
+        [StringLength(250)]
+        public string adress { get; set; }
+
+        [Column(TypeName = "Varchar")]
+        [StringLength(11)]
+        public string phone { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(30)]

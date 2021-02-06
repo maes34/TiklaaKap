@@ -1,0 +1,49 @@
+﻿@using TiklaaKap.Models.Class
+@model List<InvoiceData>
+@{
+    ViewBag.Title = "InvoiceDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Fatura Detay - Fatura No : <b>&nbsp;@ViewBag.invoiceDatas</b></li>
+</ol>
+<a class="btn btn-secondary float-right" style="margin-left:10px;" href="/Invoice/Index/">Geri</a>
+<a class="btn btn-primary " href="/Invoice/InvoiceData/">Yeni Kalem Girişi</a>
+<br />
+<br />
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Açıklama</th>
+                <th>Miktar</th>
+                <th>Birim Fiyat</th>
+                <th>Tutar</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>Açıklama</th>
+                <th>Miktar</th>
+                <th>Birim Fiyat</th>
+                <th>Tutar</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.InvoiceDataid</td>
+                    <td>@x.Description</td>
+                    <td>@x.Quantity</td>
+                    <td>@x.UnitPrice</td>
+                    <td>@x.Amount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

@@ -19,5 +19,6 @@ namespace TiklaaKap.Models.Class
         public DbSet<Sale> Sales { get; set; }
         public DbSet<Product> Products { get; set; }
 
+        public DbSet<Detail> Details { get; set; }
     }
 }

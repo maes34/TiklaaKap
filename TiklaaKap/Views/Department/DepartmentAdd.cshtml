@@ -1,0 +1,17 @@
+﻿@model TiklaaKap.Models.Class.Department
+@{
+    ViewBag.Title = "DepartmentAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Departmanlar</li>
+    <li class="breadcrumb-item active">Yeni Departman Ekle</li>
+</ol>
+
+<form class="form-group" method="post">
+    @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control", placeholder = "Departman Adı" })
+    <br />
+    <a class="btn btn-secondary" href="/Department/Index/">Geri</a>
+    <button class="btn btn-success">Kaydet</button>
+</form>
+

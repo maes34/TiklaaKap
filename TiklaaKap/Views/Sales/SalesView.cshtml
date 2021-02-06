@@ -1,0 +1,47 @@
+﻿@model TiklaaKap.Models.Class.Sale
+@{
+    ViewBag.Title = "SalesView";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using (Html.BeginForm("SalesUpdate", "Sales", FormMethod.Post))
+{
+    <div style="padding:10px" class="container align-content-center w-100 shadow ">
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Satış Görüntüle</li>
+            <li class="breadcrumb-item active">Müşteri :&nbsp;<a target="_blank" href="/Cari/CustomerSales/@Html.DisplayTextFor(x => x.Cariler.CariID)"><b>@Html.DisplayTextFor(x => x.Cariler.CariAd) @Html.DisplayTextFor(x => x.Cariler.CariSoyad)</b></a></li>
+        </ol>
+
+        @Html.HiddenFor(x => x.SalesID)
+        <span>Ürün</span>
+        @Html.DropDownListFor(x => x.ProductID, (List<SelectListItem>)ViewBag.productlist, new { @class = "form-control" })
+        <br />
+        <span>Cari</span>
+        @Html.DropDownListFor(x => x.CariID, (List<SelectListItem>)ViewBag.carilist, new { @class = "form-control " })
+        <br />
+        <span>Personel</span>
+        @Html.DropDownListFor(x => x.StaffID, (List<SelectListItem>)ViewBag.stafflist, new { @class = "form-control" })
+        <br />
+        <span>Miktar</span>
+        @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control" })
+        <br />
+        <span>Tutar</span>
+        <div class="input-group mb-3 w-25">
+            @Html.TextBoxFor(x => x.Price, new { @class = "form-control", placeholder = "Tutar" })
+            <div class="input-group-append">
+                <span class="input-group-text">₺</span>
+            </div>
+        </div>
+        <span>Toplam</span>
+        <div class="input-group mb-3 w-25">
+            @Html.TextBoxFor(x => x.TotalPrice, new { @class = "form-control", placeholder = "Toplam Tutar " })
+            <div class="input-group-append">
+                <span class="input-group-text">₺</span>
+            </div>
+        </div>
+        <span>Tarih : @Html.DisplayTextFor(x => x.Date)</span>
+        @Html.TextBoxFor(x => x.Date, new { @class = "form-control w-25", type = "datetime-local", selected = @Html.DisplayTextFor(x => x.Date) })
+        <br />
+        <a class="btn btn-secondary" href="/Sales/Index/">Geri</a>
+        <button class="btn btn-outline-dark">Güncelle</button>
+    </div>
+}

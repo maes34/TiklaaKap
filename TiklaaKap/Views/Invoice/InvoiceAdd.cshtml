@@ -1,0 +1,45 @@
+﻿@model TiklaaKap.Models.Class.Invoice
+@{
+    ViewBag.Title = "InvoiceAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Faturalar</li>
+    <li class="breadcrumb-item active">Yeni Fatura Ekle</li>
+</ol>
+
+<form class="form-group" method="post">
+    <span>Fatura Seri No :</span>
+    @Html.TextBoxFor(x => x.InvoiceSerino, new { @class = "form-control", placeholder = "Fatura seri no" })
+    <br />
+    <span>Fatura Sıra No :</span>
+    @Html.TextBoxFor(x => x.InvoiceNumber, new { @class = "form-control", placeholder = "Fatura sıra no" })
+    <br />
+    <span>Tarih :</span>
+    @Html.TextBoxFor(x => x.InvoiceDate, new { @class = "form-control", placeholder = "Tarih" })
+    <br />
+    <span>Saat :</span>
+    @Html.TextBoxFor(x => x.Time, new { @class = "form-control", placeholder = "Saat" })
+    <br />
+    <span>Veri Dairesi :</span>
+    @Html.TextBoxFor(x => x.Tax, new { @class = "form-control", placeholder = "Vergi dairesi" })
+    <br />
+    <span>Veri No :</span>
+    @Html.TextBoxFor(x => x.TaxNumber, new { @class = "form-control", placeholder = "Vergi no" })
+    <br />
+    <span>Teslim Eden :</span>
+    @Html.TextBoxFor(x => x.Delivering, new { @class = "form-control", placeholder = "Teslim eden" })
+    <br />
+    <span>Teslim Alan :</span>
+    @Html.TextBoxFor(x => x.Delivery, new { @class = "form-control", placeholder = "Teslim alan" })
+    <br />
+    <span>Telefon :</span>
+    @Html.TextBoxFor(x => x.phone, new { @class = "form-control", placeholder = "Telefon" })
+    <br />
+    <span>Adres :</span>
+    @Html.TextAreaFor(x => x.adress, new { @class = "form-control", placeholder = "Adres" })
+    <br />
+    <a class="btn btn-secondary" href="/Invoice/Index/">Geri</a>
+    <button class="btn btn-success">Kaydet</button>
+</form>

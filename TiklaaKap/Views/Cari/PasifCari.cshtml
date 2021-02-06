@@ -1,0 +1,51 @@
+﻿@using TiklaaKap.Models.Class
+@model List<Cariler>
+@{
+    ViewBag.Title = "PasifCari";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Cariler</li>
+    <li class="breadcrumb-item active">Pasif Cariler</li>
+</ol>
+<a class="btn btn-secondary float-right" href="/Cari/Index/">Geri</a>
+<br />
+<br />
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Ad Soyad</th>
+                <th>Şehir</th>
+                <th>Email</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>Ad Soyad</th>
+                <th>Şehir</th>
+                <th>Email</th>
+                <th>İşlemler</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.CariID</td>
+                    <td>@c.CariAd @c.CariSoyad</td>
+                    <td>@c.CariSehir</td>
+                    <td>@c.CariMail</td>
+                    <td class="w-25">
+                        <a class="btn btn-outline-success" href="/Cari/CariActive/@c.CariID">Aktifleştir</a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

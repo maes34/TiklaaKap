@@ -1,0 +1,62 @@
+﻿@using TiklaaKap.Models.Class
+@model List<Sale>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Satışlar</li>
+</ol>
+<a style="margin-right:10px;" class="btn btn-primary float-right" href="/Sales/SalesAdd/">Yeni Satış</a>
+<br />
+<br />
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Ürün</th>
+                <th>Cari</th>
+                <th>Personel</th>
+                <th>Adet</th>
+                <th>Fiyat</th>
+                <th>Toplam</th>
+                <th>Tarih</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>Ürün</th>
+                <th>Cari</th>
+                <th>Personel</th>
+                <th>Adet</th>
+                <th>Fiyat</th>
+                <th>Toplam</th>
+                <th>Tarih</th>
+                <th>İşlemler</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            @foreach (var s in Model)
+            {
+                <tr>
+                    <td>@s.SalesID</td>
+                    <td>@s.Product.ProductName</td>
+                    <td>@s.Cariler.CariAd @s.Cariler.CariSoyad </td>
+                    <td>@s.Staff.StaffName @s.Staff.StaffSurname</td>
+                    <td>@s.Quantity</td>
+                    <td>@s.Price ₺</td>
+                    <td>@s.TotalPrice ₺</td>
+                    <td>@s.Date</td>
+                    <td class="w-25">
+                        <a class="btn btn-outline-warning" href="/Sales/SalesView/@s.SalesID">Güncelle</a>
+                        <a href="/Sales/SalesDetail/@s.SalesID" target="popup" onclick="window.open('/Sales/SalesDetail/@s.SalesID','name','width=1000,height=480','center')" class="btn btn-outline-primary">Detaylar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

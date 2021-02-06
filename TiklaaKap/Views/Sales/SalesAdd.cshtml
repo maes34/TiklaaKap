@@ -1,0 +1,40 @@
+﻿@model TiklaaKap.Models.Class.Sale
+@{
+    ViewBag.Title = "SalesAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Satışlar</li>
+    <li class="breadcrumb-item active">Yeni Satış Ekle</li>
+</ol>
+
+<form class="form-group" method="post">
+    <span>Ürün</span>
+    @Html.DropDownListFor(x => x.ProductID, (List<SelectListItem>)ViewBag.productlist, new { @class = "form-control w-50" })<br />
+    <span>Cari</span>
+    @Html.DropDownListFor(x => x.CariID, (List<SelectListItem>)ViewBag.carilist, new { @class = "form-control w-50" })<br />
+    <span>Personel</span>
+    @Html.DropDownListFor(x => x.StaffID, (List<SelectListItem>)ViewBag.stafflist, new { @class = "form-control w-50" })<br />
+    <span>Miktar</span>
+    @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control w-50", placeholder = "Miktar" })<br />
+    <span>Tutar</span>
+    <div class="input-group mb-3 w-25">
+        @Html.TextBoxFor(x => x.Price, new { @class = "form-control w-50", placeholder = "Tutar" })
+        <div class="input-group-append">
+            <span class="input-group-text">₺</span>
+        </div>
+    </div>
+    <span>Toplam</span>
+    <div class="input-group mb-3 w-25">
+        @Html.TextBoxFor(x => x.TotalPrice, new { @class = "form-control w-50 ", placeholder = "Toplam Tutar "})
+        <div class="input-group-append">
+            <span class="input-group-text">₺</span>
+        </div>
+    </div>
+    <span>Tarih</span>
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control w-50", placeholder = "Miktar", type = "datetime-local" })<br />
+    <br />
+    <a class="btn btn-secondary" href="/Sales/Index/">Geri</a>
+    <button class="btn btn-success">Satış Ekle</button>
+</form>

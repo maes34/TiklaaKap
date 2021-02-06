@@ -1,0 +1,18 @@
+﻿@model TiklaaKap.Models.Class.Category
+@{
+    ViewBag.Title = "CategoryAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Kategoriler</li>
+    <li class="breadcrumb-item active">Yeni Kategori Ekle</li>
+</ol>
+<div class="card mb-4 w-25" style="padding:10px;">
+    <form class="form-group" method="post">
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control", placeholder = "Kategori Adı" })
+        <br />
+        <a class="btn btn-secondary" href="/Category/Index/">Geri</a>
+        <button class="btn btn-success">Kaydet</button>
+    </form>
+</div>

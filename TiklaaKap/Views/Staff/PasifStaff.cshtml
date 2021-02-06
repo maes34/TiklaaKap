@@ -1,0 +1,50 @@
+﻿@using TiklaaKap.Models.Class
+@model List<Staff>
+@{
+    ViewBag.Title = "PasifStaff";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Pasif Personeller</li>
+</ol>
+<a class="btn btn-secondary float-right" href="/Staff/Index/">Geri</a>
+<br />
+<br />
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Resim</th>
+                <th>Ad Soyad</th>
+                <th>Departman</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>Resim</th>
+                <th>Ad Soyad</th>
+                <th>Departman</th>
+                <th>İşlemler</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            @foreach (var s in Model)
+            {
+                <tr>
+                    <td>@s.StaffID</td>
+                    <td>@s.StaffImage</td>
+                    <td><a href="/Department/DepartmentStaffSale/@s.StaffID">@s.StaffName @s.StaffSurname</a></td>
+                    <td><a href="/Department/DepartmentDetail/@s.DepartmentID">@s.Department.DepartmentName</a></td>
+                    <td class="w-25">
+                        <a class="btn btn-outline-success" href="/Staff/StaffActive/@s.StaffID">Aktifleştir</a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

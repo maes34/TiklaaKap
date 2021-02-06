@@ -1,0 +1,59 @@
+﻿@using TiklaaKap.Models.Class
+@model List<Sale>
+@{
+    ViewBag.Title = "CustomerSales";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"><b>(@ViewBag.carname)&nbsp;</b>  Satın alma geçmişi</li>
+
+</ol>
+<a class="btn btn-secondary float-right" style="margin-left:10px;" href="/Cari/Index/">Geri</a>
+<br />
+<br />
+<div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tarih</th>
+                <th>Ürün</th>
+                <th>Adet</th>
+                <th>Fiyat</th>
+                <th>Toplam</th>
+                <th>Personel</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>Tarih</th>
+                <th>Ürün</th>
+                <th>Adet</th>
+                <th>Fiyat</th>
+                <th>Toplam</th>
+                <th>Personel</th>
+                <th>İşlemler</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            @foreach (var ps in Model)
+            {
+                <tr>
+                    <td>@ps.SalesID</td>
+                    <td>@ps.Date</td>
+                    <td>@ps.Product.ProductName</td>
+                    <td>@ps.Quantity</td>
+                    <td>@ps.Price</td>
+                    <td>@ps.TotalPrice</td>
+                    <td>@ps.Staff.StaffName @ps.Staff.StaffSurname</td>
+                    <td><a class="btn btn-outline-primary" href="">Yazdır</a></td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

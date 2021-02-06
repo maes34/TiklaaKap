@@ -1,0 +1,33 @@
+﻿@model TiklaaKap.Models.Class.InvoiceData
+@{
+    ViewBag.Title = "InvoiceData";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>InvoiceData</h2>
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Faturalar Kalem</li>
+    <li class="breadcrumb-item active">Yeni Fatura Kalem</li>
+</ol>
+
+<form class="form-group" method="post">
+    <span>Açıklama :</span>
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control", placeholder = "Açıklama" })
+    <br />
+    <span>Miktar :</span>
+    @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control", placeholder = "Miktar" })
+    <br />
+    <span>Birim Fiyat :</span>
+    @Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control", placeholder = "Birim Fiyat" })
+    <br />
+    <span>Tutar :</span>
+    @Html.TextBoxFor(x => x.Amount, new { @class = "form-control", placeholder = "Tutar" })
+    <br />
+    <span>Fatura :</span>
+    @Html.TextBoxFor(x => x.InvoiceID, new { @class = "form-control", placeholder = "Fatura" })
+    <br />
+    
+    <a class="btn btn-secondary" href="/Invoice/Index/">Geri</a>
+    <button class="btn btn-success">Kaydet</button>
+</form>

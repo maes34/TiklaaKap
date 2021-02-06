@@ -1,0 +1,46 @@
+﻿@model TiklaaKap.Models.Class.Invoice
+@{
+    ViewBag.Title = "InvoiceView";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("InvoiceUpdate", "Invoice", FormMethod.Post))
+{
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Faturalar</li>
+        <li class="breadcrumb-item active">Fatura Görüntüle -  <b>@Html.DisplayTextFor(x => x.InvoiceNumber)</b></li>
+    </ol>
+    @Html.HiddenFor(x => x.InvoiceID)
+    <span>Fatura Seri No : </span>
+    @Html.TextBoxFor(x => x.InvoiceSerino, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.InvoiceSerino) })
+    <br />
+    <span>Fatura Sıra No :</span>
+    @Html.TextBoxFor(x => x.InvoiceNumber, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.InvoiceNumber) })
+    <br />
+    <span>Tarih :</span>
+    @Html.TextBoxFor(x => x.InvoiceDate, new { @class = "form-control w-25", type = "date", placeholder = @Html.DisplayTextFor(x => x.InvoiceDate) })
+    <br />
+    <span>Saat :</span>
+    @Html.TextBoxFor(x => x.Time, new { @class = "form-control w-25", type = "time", placeholder = @Html.DisplayTextFor(x => x.Time) })
+    <br />
+    <span>Vergi Dairesi :</span>
+    @Html.TextBoxFor(x => x.Tax, new { @class = "form-control", rows = "15", cols = "150", placeholder = @Html.DisplayTextFor(x => x.Tax) })
+    <br />
+    <span>Vergi Numarası : </span>
+    @Html.TextBoxFor(x => x.TaxNumber, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.TaxNumber) })
+    <br />
+    <span>Teslim eden : </span>
+    @Html.TextBoxFor(x => x.Delivering, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.Delivering) })
+    <br />
+    <span>Teslim alan : </span>
+    @Html.TextBoxFor(x => x.Delivery, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.Delivery) })
+    <br />
+    <span>Telefon : </span>
+    @Html.TextBoxFor(x => x.phone, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.phone) })
+    <br />
+    <span>Adres</span>
+    @Html.TextAreaFor(x => x.adress, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.adress) })
+    <br />
+    <a class="btn btn-secondary" href="/Invoice/Index/">Geri</a>
+    <button class="btn btn-outline-dark">Güncelle</button>
+}

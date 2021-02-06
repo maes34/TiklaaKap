@@ -21,9 +21,13 @@ namespace TiklaaKap.Models.Class
         public string StaffSurname { get; set; }
 
         [Column(TypeName = "Varchar")]
-        [StringLength(250)]
+        [StringLength(250, ErrorMessage = "Maksimum değer aşıldı.")]
         public string StaffImage { get; set; }
         public ICollection<Sale> Sales { get; set; }
-        public Department Department { get; set; }
+
+        public int DepartmentID { get; set; }
+        public virtual Department Department { get; set; }
+
+        public bool Information { get; set; }
     }
 }

@@ -1,0 +1,19 @@
+﻿@model TiklaaKap.Models.Class.Category
+@{
+    ViewBag.Title = "CategoryAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using (Html.BeginForm("CategoryUpdate", "Category", FormMethod.Post))
+{
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Kategoriler</li>
+        <li class="breadcrumb-item active">Kategori Düzenle - <b>@Html.DisplayTextFor(x => x.CategoryName)</b></li>
+    </ol>
+    
+        @Html.HiddenFor(x => x.CategoryID)
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+        <br />
+        <a class="btn btn-secondary" href="/Category/Index/">Geri</a>
+        <button class="btn btn-outline-dark">Güncelle</button>
+ 
+}

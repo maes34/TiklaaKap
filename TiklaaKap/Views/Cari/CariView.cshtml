@@ -1,0 +1,37 @@
+﻿@model TiklaaKap.Models.Class.Cariler
+@{
+    ViewBag.Title = "CariView";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("CariUpdate", "Cari", FormMethod.Post))
+{
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Cariler</li>
+        <li class="breadcrumb-item active">Cari Düzenle - <b>&nbsp;@Html.DisplayTextFor(x => x.CariAd) @Html.DisplayTextFor(x => x.CariSoyad)</b></li>
+    </ol>
+    @Html.HiddenFor(x => x.CariID)
+    <span>Ad :</span>
+    @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.CariAd) })
+    @Html.ValidationMessageFor(x => x.CariAd, "", new { @style = "color:red" })
+    <br />
+    <span>Soyad :</span>
+    @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.CariSoyad) })
+    @Html.ValidationMessageFor(x => x.CariSoyad, "", new { @style = "color:red" })
+    <br />
+    <span>Şehir :</span>
+    @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.CariSehir) })
+    @Html.ValidationMessageFor(x => x.CariSehir, "", new { @style = "color:red" })
+    <br />
+    <span>E-Mail :</span>
+    @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.CariMail) })
+    @Html.ValidationMessageFor(x => x.CariMail, "", new { @style = "color:red" })
+    <br />
+    <span>Durum :</span>
+    @Html.TextBoxFor(x => x.Information, new { @class = "form-control", placeholder = @Html.DisplayTextFor(x => x.Information) })
+    @Html.ValidationMessageFor(x => x.Information, "", new { @style = "color:red" })
+    <br />
+    <a class="btn btn-secondary" href="/Cari/Index/">Geri</a>
+    <button class="btn btn-outline-dark">Güncelle</button>
+}
+

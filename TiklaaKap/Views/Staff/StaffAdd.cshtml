@@ -1,0 +1,25 @@
+﻿@model TiklaaKap.Models.Class.Staff
+@{
+    ViewBag.Title = "StaffAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Personeller</li>
+    <li class="breadcrumb-item active">Yeni Personel Ekle</li>
+</ol>
+
+<form class="form-group" method="post">
+    <span>Ad :</span>
+    @Html.TextBoxFor(x => x.StaffName, new { @class = "form-control", placeholder = "Personel Adı" })<br />
+    <span>Soyad :</span>
+    @Html.TextBoxFor(x => x.StaffSurname, new { @class = "form-control", placeholder = "Personel Soyadı" })<br />
+    <span>Görsel :</span>
+    @Html.TextBoxFor(x => x.StaffImage, new { @class = "form-control", placeholder = "Personel Görsel" })
+    <br />
+    <span>Departman :</span>
+    @Html.DropDownListFor(x => x.DepartmentID, (List<SelectListItem>)ViewBag.depList, new { @class = "form-control" })<br />
+    <a class="btn btn-secondary" href="/Staff/Index/">Geri</a>
+    <button class="btn btn-success">Kaydet</button>
+</form>
+

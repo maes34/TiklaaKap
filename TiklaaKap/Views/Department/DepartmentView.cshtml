@@ -1,0 +1,18 @@
+﻿@model TiklaaKap.Models.Class.Department
+@{
+    ViewBag.Title = "DepartmentView";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("DepartmentUpdate", "Department", FormMethod.Post))
+{
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Departmanlar</li>
+        <li class="breadcrumb-item active">Departman Düzenle - <b> @Html.DisplayTextFor(x => x.DepartmentName)</b></li>
+    </ol>
+    @Html.HiddenFor(x => x.DepartmentID)
+    @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control" , placeholder = @Html.DisplayTextFor(x => x.DepartmentName) })
+    <br />
+    <a class="btn btn-secondary" href="/Category/Index/">Geri</a>
+    <button class="btn btn-outline-dark">Güncelle</button>
+}
