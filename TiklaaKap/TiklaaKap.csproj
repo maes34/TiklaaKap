@@ -150,9 +150,12 @@
     <Compile Include="Models\Class\Department.cs" />
     <Compile Include="Models\Class\Detail.cs" />
     <Compile Include="Models\Class\Expense.cs" />
+    <Compile Include="Models\Class\GroupClass.cs" />
+    <Compile Include="Models\Class\GroupClass2.cs" />
     <Compile Include="Models\Class\InvoiceData.cs" />
     <Compile Include="Models\Class\Invoice.cs" />
     <Compile Include="Models\Class\Product.cs" />
+    <Compile Include="Models\Class\ProductDetail.cs" />
     <Compile Include="Models\Class\Sale.cs" />
     <Compile Include="Models\Class\Staff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2814,6 +2817,8 @@
     <Content Include="thumber\scss\_site-navbar.scss" />
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\ProductDetail\Index.cshtml" />
+    <Content Include="Views\Stats\EasyTables.cshtml" />
+    <Content Include="Views\Stats\Partial1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

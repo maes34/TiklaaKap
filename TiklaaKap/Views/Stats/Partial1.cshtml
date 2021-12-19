@@ -1,0 +1,69 @@
+﻿@model IEnumerable<TiklaaKap.Models.Class.GroupClass2>
+<div class="col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Departman Personel Sayıları</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body p-0">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Departman</th>
+                        <th>Durum</th>
+                        <th style="width: 40px">Sayı</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ int sayi = 0;}
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td>@{sayi++;} @sayi</td>
+                            <td>@x.DepartmentId</td>
+                            <td>
+                                @if (x.Total == 1)
+                                {
+                                    <div class="progress progress-xs progress-striped active">
+                                        <div class="progress-bar bg-success" style="width: @x.Total%"></div>
+                                    </div>
+                                }
+                                @if (x.Total == 2)
+                                {
+                                    <div class="progress progress-xs progress-striped active">
+                                        <div class="progress-bar bg-warning" style="width: @x.Total%"></div>
+                                    </div>
+                                }
+                                @if (x.Total == 3)
+                                {
+                                    <div class="progress progress-xs progress-striped active">
+                                        <div class="progress-bar bg-primary" style="width: @x.Total%"></div>
+                                    </div>
+                                }
+
+                            </td>
+                            <td>
+                                @if (x.Total == 1)
+                                {
+                                    <span class="badge bg-success">@x.Total</span>
+                                }
+                                @if (x.Total == 2)
+                                {
+                                    <span class="badge bg-warning">@x.Total</span>
+                                }
+                                @if (x.Total == 3)
+                                {
+                                    <span class="badge bg-primary">@x.Total</span>
+                                }
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+</div>

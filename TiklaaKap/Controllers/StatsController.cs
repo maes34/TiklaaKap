@@ -60,9 +60,31 @@ namespace TiklaaKap.Controllers
             var deger15 = c.Sales.Count(x => x.Date == bugun).ToString();
             ViewBag.d15 = deger15;
             // 16
-            var deger16 = c.Sales.Where(x => x.Date == bugun).DefaultIfEmpty().Sum(y => y.TotalPrice).ToString();
-            ViewBag.d16 = deger16;
+            //var deger16 = c.Sales.Where(x => x.Date == bugun).DefaultIfEmpty().Sum(y => y.TotalPrice).ToString();
+            //ViewBag.d16 = deger16;
             return View();
+        }
+        public ActionResult EasyTables()
+        {
+            var value = from x in c.Carilers
+                        group x by x.CariSehir into g
+                        select new GroupClass
+                        {
+                            City = g.Key,
+                            Total = g.Count()
+                        };
+            return View(value.ToList());
+        }
+        public PartialViewResult Partial1()
+        {
+            var value2 = from x in c.Staffs
+                         group x by x.DepartmentID into g
+                         select new GroupClass2
+                         {
+                             DepartmentId = g.Key,
+                             Total = g.Count()
+                         };
+            return PartialView(value2.ToList());
         }
     }
 }
